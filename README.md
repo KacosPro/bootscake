@@ -1,5 +1,8 @@
 # BootsCake
 
+[![Build Status](https://travis-ci.org/KacosPro/bootscake.svg?branch=master)](https://travis-ci.org/KacosPro/bootscake)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 [Bootstrap 4][twbs4] plugin for [CakePHP 3.4][cakephp].
 
 ## Requirements
@@ -143,6 +146,7 @@ $('#modal').on('show.bs.modal', function (event) {
 ```
 
 ## TODO
+- [ ] Improve Docs.
 - [ ] Handle configurations.
 - [ ] Add options for modal rendering.
 - [ ] Create Html Helpers.
@@ -150,7 +154,7 @@ $('#modal').on('show.bs.modal', function (event) {
 
 ## License
 
-Copyright (c) 2016, Carlos Proaño and licensed under [The MIT License][mit].
+Copyright (c) 2017, Carlos Proaño and licensed under [The MIT License][mit].
 
 [cakephp]:https://cakephp.org
 [composer]:http://getcomposer.org
