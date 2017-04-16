@@ -21,4 +21,3 @@ $root = $findRoot(__FILE__);
 unset($findRoot);
 
 chdir($root);
-require $root . '/config/bootstrap.php';
