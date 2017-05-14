@@ -38,7 +38,7 @@ class BootsCakeFormHelper extends FormHelper
             'inputSubmit' => '<input type="{{type}}"{{attrs}}/>',
             'inputContainer' => '<div class="form-group {{type}}{{required}}">{{content}}</div>',
             'inputContainerError' => '<div class="input {{type}}{{required}} form-group has-danger">{{content}}{{error}}</div>',
-            'label' => '<label  class="form-control-label" {{attrs}}>{{text}}</label>',
+            'label' => '<label class="form-control-label" {{attrs}}>{{text}}</label>',
             'nestingLabel' => '{{hidden}}<label{{attrs}}>{{input}}{{text}}</label>',
             'legend' => '<legend>{{text}}</legend>',
             'multicheckboxTitle' => '<legend>{{text}}</legend>',
