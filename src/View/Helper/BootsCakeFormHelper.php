@@ -150,8 +150,6 @@ class BootsCakeFormHelper extends FormHelper
         $options['data-toggle'] = 'modal';
         $options['data-target'] = '#modal';
         $options['data-form-name'] = $formName;
-        $options['role'] = 'button';
-        $options['type'] = 'button';
 
         if (!isset($options['data-name'])) {
             $options['data-name'] = '';
