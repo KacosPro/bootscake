@@ -45,27 +45,18 @@ or using CakePHP's console:
 
 First of all you should load Bootstrap by your favorite method. Then you will need to modify your `src/View/AppView`.
 
-### AppView Setup
+### Setup
 
 
-Your `src\View\AppView.php` will look something like the following:
+In your `src\Controller\AppController.php` load the helpers you need:
 
 ```php
-namespace App\View;
-
-use Cake\View\View;
-use BootsCake\View\Helper;
-
-class AppView extends View
-{
-    public function initialize()
-    {
-        $this->loadHelper('BootsCakeForm', ['className' => 'BootsCake.BootsCakeForm']);
-        $this->loadHelper('BootsCakePaginator', ['className' => 'BootsCake.BootsCakePaginator']);
-        $this->loadHelper('BootsCakeFlash', ['className' => 'BootsCake.BootsCakeFlash']);
-        $this->loadHelper('BootsCakeModal', ['className' => 'BootsCake.BootsCakeModal']);
-    }
-}
+public $helpers = [
+    'BootsCake.BootsCakeForm',
+    'BootsCake.BootsCakePaginator',
+    'BootsCake.BootsCakeFlash',
+    'BootsCake.BootsCakeModal'
+];
 ```
 
 ## Helper Usage
