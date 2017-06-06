@@ -43,7 +43,7 @@ or using CakePHP's console:
 
 ## Usage
 
-First of all you should load Bootstrap by your favorite method. Then you will need to modify your `src/View/AppView`.
+First of all you should load Bootstrap by your favorite method. Then you will need to modify your `src\Controller\AppController.php`.
 
 ### Setup
 
