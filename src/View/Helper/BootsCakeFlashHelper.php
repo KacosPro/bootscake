@@ -40,9 +40,6 @@ class BootsCakeFlashHelper extends Helper
 
         $out = '';
         foreach ($flash as $message) {
-            // Here I'm replacing the default Flash element for the BootsCake
-            // flash element.
-            $message['element'] = str_replace('Flash', 'BootsCake.Flash', $message['element']);
             $message = $options + $message;
             $out .= $this->_View->element($message['element'], $message);
         }
