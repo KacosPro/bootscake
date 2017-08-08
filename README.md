@@ -26,7 +26,7 @@ More of a plugin is an adapter for current CakePHP's helpers. It's an absolutely
 ## Installing Using [Composer][composer]
 
 ```
-composer require kacospro/bootscake 1.0.3-alpha
+composer require kacospro/bootscake 1.0.5-alpha
 ```
 
 Load the plugin by adding the following to your app's `config/boostrap.php`:
