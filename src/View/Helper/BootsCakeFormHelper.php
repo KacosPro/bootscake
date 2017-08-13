@@ -28,7 +28,7 @@ class BootsCakeFormHelper extends FormHelper
             'error' => '<span class="form-control-feedback">{{content}}</span>',
             'errorList' => '<ul>{{content}}</ul>',
             'errorItem' => '<li>{{text}}</li>',
-            'file' => '<input type="file" name="{{name}}"{{attrs}}>',
+            'file' => '<input type="file" class="form-control-file" name="{{name}}"{{attrs}}>',
             'fieldset' => '<fieldset{{attrs}}>{{content}}</fieldset>',
             'formStart' => '<form{{attrs}}>',
             'formEnd' => '</form>',
