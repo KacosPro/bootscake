@@ -38,14 +38,14 @@ class BootsCakeFormHelper extends FormHelper
             'inputSubmit' => '<input type="{{type}}"{{attrs}}/>',
             'inputContainer' => '<div class="form-group {{type}}{{required}}">{{content}}</div>',
             'inputContainerError' => '<div class="input {{type}}{{required}} form-group has-danger">{{content}}{{error}}</div>',
-            'label' => '<label class="form-control-label" {{attrs}}>{{text}}</label>',
+            'label' => '<label {{attrs}}>{{text}}</label>',
             'nestingLabel' => '{{hidden}}<label{{attrs}}>{{input}}{{text}}</label>',
             'legend' => '<legend>{{text}}</legend>',
             'multicheckboxTitle' => '<legend>{{text}}</legend>',
             'multicheckboxWrapper' => '<fieldset{{attrs}}>{{content}}</fieldset>',
             'option' => '<option value="{{value}}"{{attrs}}>{{text}}</option>',
             'optgroup' => '<optgroup label="{{label}}"{{attrs}}>{{content}}</optgroup>',
-            'select' => '<select class="form-control" name="{{name}}"{{attrs}} class="form-control">{{content}}</select>',
+            'select' => '<select class="form-control form-control-lg" name="{{name}}"{{attrs}}>{{content}}</select>',
             'selectMultiple' => '<select name="{{name}}[]" multiple="multiple"{{attrs}} class="form-control">{{content}}</select>',
             'radio' => '<input type="radio" name="{{name}}" value="{{value}}"{{attrs}}>',
             'radioWrapper' => '{{label}}',
@@ -173,75 +173,9 @@ class BootsCakeFormHelper extends FormHelper
     public function control($fieldName, array $options = [])
     {
         $options += [
-            'type' => null,
-            'label' => null,
-            'error' => null,
-            'required' => null,
-            'options' => null,
-            'templates' => ['input' => '<input type="{{type}}" class="form-control" name="{{name}}"{{attrs}}/>'],
-            'templateVars' => [],
-            'labelOptions' => true
+            'templates' => ['input' => '<input type="{{type}}" class="form-control  form-control-lg" name="{{name}}"{{attrs}}/>']
         ];
-        $options = $this->_parseOptions($fieldName, $options);
-        $options += ['id' => $this->_domId($fieldName)];
 
-        $templater = $this->templater();
-        $newTemplates = $options['templates'];
-
-        if ($newTemplates) {
-            $templater->push();
-            $templateMethod = is_string($options['templates']) ? 'load' : 'add';
-            $templater->{$templateMethod}($options['templates']);
-        }
-        unset($options['templates']);
-
-        $error = null;
-        $errorSuffix = '';
-        if ($options['type'] !== 'hidden' && $options['error'] !== false) {
-            if (is_array($options['error'])) {
-                $error = $this->error($fieldName, $options['error'], $options['error']);
-            } else {
-                $error = $this->error($fieldName, $options['error']);
-            }
-            $errorSuffix = empty($error) ? '' : 'Error';
-            unset($options['error']);
-        }
-
-        $label = $options['label'];
-        unset($options['label']);
-
-        $nestedInput = false;
-        if ($options['type'] === 'checkbox') {
-            $nestedInput = true;
-        }
-        $nestedInput = isset($options['nestedInput']) ? $options['nestedInput'] : $nestedInput;
-
-        if ($nestedInput === true && $options['type'] === 'checkbox' && !array_key_exists('hiddenField', $options) && $label !== false) {
-            $options['hiddenField'] = '_split';
-        }
-
-        $input = $this->_getInput($fieldName, $options);
-        if ($options['type'] === 'hidden' || $options['type'] === 'submit') {
-            if ($newTemplates) {
-                $templater->pop();
-            }
-
-            return $input;
-        }
-
-        $label = $this->_getLabel($fieldName, compact('input', 'label', 'error', 'nestedInput') + $options);
-        $result = $this->_groupTemplate(compact('input', 'label', 'error', 'options'));
-        $result = $this->_inputContainerTemplate([
-            'content' => $result,
-            'error' => $error,
-            'errorSuffix' => $errorSuffix,
-            'options' => $options
-        ]);
-
-        if ($newTemplates) {
-            $templater->pop();
-        }
-
-        return $result;
+        return parent::control($fieldName, $options);
     }
 }
