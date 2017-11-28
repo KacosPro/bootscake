@@ -26,7 +26,7 @@ More of a plugin is an adapter for current CakePHP's helpers. It's an absolutely
 ## Installing Using [Composer][composer]
 
 ```
-composer require kacospro/bootscake 1.0.5-alpha
+composer require kacospro/bootscake
 ```
 
 Load the plugin by adding the following to your app's `config/boostrap.php`:
@@ -139,6 +139,7 @@ $('#modal').on('show.bs.modal', function (event) {
 ## TODO
 - [ ] Improve Docs.
 - [ ] Handle configurations.
+- [ ] Add options for size (sm, md, lg).
 - [ ] Add options for modal rendering.
 - [ ] Create Html Helpers.
 - [ ] Create a way to automatize Bootstrap instalation.
