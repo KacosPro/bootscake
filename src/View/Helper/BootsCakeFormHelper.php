@@ -75,7 +75,7 @@ class BootsCakeFormHelper extends FormHelper
             // Label element when inputs are not nested inside the label.
             'label' => '<label{{attrs}}>{{text}}</label>',
             // Label element used for radio and multi-checkbox inputs.
-            'nestingLabel' => '{{hidden}}<label{{attrs}}>{{input}}{{text}}</label>',
+            'nestingLabel' => '<div class="form-check{{inline}}">{{hidden}}{{input}}{{text}}</div>',
             // Legends created by allControls()
             'legend' => '<legend>{{text}}</legend>',
             // Multi-Checkbox input set title element.
@@ -97,7 +97,7 @@ class BootsCakeFormHelper extends FormHelper
             // Textarea input element,
             'textarea' => '<textarea name="{{name}}"{{attrs}}>{{value}}</textarea>',
             // Container for submit buttons.
-            'submitContainer' => '<div class="submit">{{content}}</div>',
+            'submitContainer' => '<div class="form-group">{{content}}</div>',
         ]
     ];
 
@@ -273,12 +273,28 @@ class BootsCakeFormHelper extends FormHelper
         $baseClass = 'form-control';
         $sizeClass = '';
 
+        if (!empty($options['type']) && $options['type'] === 'submit') {
+            $baseClass = 'btn btn-primary';
+        }
+
         if (!empty($options['type']) && $options['type'] === 'file') {
             $baseClass = 'form-control-file';
         }
 
+        if (!empty($options['type']) && in_array($options['type'], ['checkbox', 'radio'])) {
+            $baseClass = 'form-check-input';
+            $options['label']['class'] = 'form-check-label';
+        }
+
+        if (!empty($options['plaintext']) && $options['plaintext']) {
+            $baseClass = 'form-control-plaintext';
+        }
+
         if (!empty($options['size']) && in_array($options['size'], ['sm', 'lg'])) {
             $sizeClass = ' form-control-' . $options['size'];
+            if (!empty($options['type']) && $options['type'] === 'submit') {
+                $sizeClass = ' btn-' . $options['size'];
+            }
         }
 
         $class = !empty($options['class']) ? ' ' . $options['class'] : '';
