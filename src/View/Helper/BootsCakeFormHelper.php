@@ -274,7 +274,8 @@ class BootsCakeFormHelper extends FormHelper
         $sizeClass = '';
 
         if (!empty($options['type']) && $options['type'] === 'submit') {
-            $baseClass = 'btn btn-primary';
+            $color = !empty($options['color']) ? $options['color'] : 'primary';
+            $baseClass = sprintf('btn btn-%s', $color);
         }
 
         if (!empty($options['type']) && $options['type'] === 'file') {
