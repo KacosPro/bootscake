@@ -164,7 +164,7 @@ $('#modal').on('show.bs.modal', function (event) {
 
 ## License
 
-Copyright (c) 2017, Carlos Proaño and licensed under [The MIT License][mit].
+Copyright (c) 2018, Carlos Proaño and licensed under [The MIT License][mit].
 
 [cakephp]: https://cakephp.org
 [composer]: http://getcomposer.org
