@@ -57,6 +57,18 @@ public function initialize()
 }
 ```
 
+## Helper Usage
+
+Form Helper. You only need to call BootsCakeForm on the View
+```php
+<?php
+echo $this->BootsCakeForm->create($article);
+echo $this->BootsCakeForm->control('title');
+echo $this->BootsCakeForm->control('body');
+echo $this->BootsCakeForm->control(__('Submit'), ['type' => 'submit']);
+echo $this->BootsCakeForm->end();
+?>
+```
 **Wait**! What if I need different form sizes?
 <br>
 I got your back! You can pass size as an option it could be `sm` or `lg`:
@@ -70,17 +82,12 @@ I got your back! You can pass size as an option it could be `sm` or `lg`:
     ]
 ) ?>
 ```
-## Helper Usage
 
-Form Helper. You only need to call BootsCakeForm on the View
+Also if you pass the option `'type' => 'submit'` it supports also a [color][twbs-colors] to render the submit button
+
 ```php
-<?php
-echo $this->BootsCakeForm->create($article);
-echo $this->BootsCakeForm->control('title');
-echo $this->BootsCakeForm->control('body');
-echo $this->BootsCakeForm->control(__('Submit'), ['type' => 'submit']);
-echo $this->BootsCakeForm->end();
-?>
+<?= $this->BootsCakeForm->control('Submit', ['type' => 'submit', 'color' => 'primary']) ?>
+
 ```
 Flash Helper.
 ```php
@@ -163,3 +170,4 @@ Copyright (c) 2017, Carlos Proaño and licensed under [The MIT License][mit].
 [composer]: http://getcomposer.org
 [mit]: http://www.opensource.org/licenses/mit-license.php
 [twbs4]: https://getbootstrap.com/
+[twbs-colors]: https://getbootstrap.com/docs/4.0/utilities/colors/
