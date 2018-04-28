@@ -3,18 +3,18 @@
 [![Build Status](https://travis-ci.org/KacosPro/bootscake.svg?branch=master)](https://travis-ci.org/KacosPro/bootscake)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[Bootstrap 4][twbs4] plugin for [CakePHP 3.4][cakephp].
+[Bootstrap 4][twbs4] plugin for [CakePHP ^3.4][cakephp].
 
 ## Requirements
 
-* CakePHP 3.4.x
-* Bootstrap 4.0.0-alpha.6
-* jQuery 1.9+
-* Tether 1.4
+* CakePHP ^3.4.0
+* Bootstrap ^4.0.0
+* jQuery 1.9.1 - 3,
+* Popper.js ^1.14.0
 
 ## Description
 
-More of a plugin is an adapter for current CakePHP's helpers. It's an absolutely WIP
+Adapter of current CakePHP's helpers. While I feel it is getting pretty close to a stable version :smile: it is possible that breaking changes ocurre
 
 ## Includes
 
@@ -32,33 +32,44 @@ composer require kacospro/bootscake
 Load the plugin by adding the following to your app's `config/boostrap.php`:
 
 ```php
-\Cake\Core\Plugin::load('BootsCake');
+Plugin::load('BootsCake');
 ```
 
 or using CakePHP's console:
 
 ```
-./bin/cake plugin load BootsCake
+bin/cake plugin load BootsCake
 ```
 
-## Usage
+## Setup
 
-First of all you should load Bootstrap by your favorite method. Then you will need to modify your `src\Controller\AppController.php`.
+First of all you should load Bootstrap by your favorite method.
 
-### Setup
-
-
-In your `src\Controller\AppController.php` load the helpers you need:
+Then in your `src/View/AppView.php` load the helpers you need:
 
 ```php
-public $helpers = [
-    'BootsCake.BootsCakeForm',
-    'BootsCake.BootsCakePaginator',
-    'BootsCake.BootsCakeFlash',
-    'BootsCake.BootsCakeModal'
-];
+public function initialize()
+{
+    $this->loadHelper('BootsCake.BootsCakeFlash');
+    $this->loadHelper('BootsCake.BootsCakeForm');
+    $this->loadHelper('BootsCake.BootsCakeModal');
+    $this->loadHelper('BootsCake.BootsCakePaginator');
+}
 ```
 
+**Wait**! What if I need different form sizes?
+<br>
+I got your back! You can pass size as an option it could be `sm` or `lg`:
+
+```php
+<?= $this->BootsCakeForm->control(
+    'email',
+    [
+        'placeholder' => 'carlos@example.com',
+        'size' => 'sm',
+    ]
+) ?>
+```
 ## Helper Usage
 
 Form Helper. You only need to call BootsCakeForm on the View
@@ -67,7 +78,7 @@ Form Helper. You only need to call BootsCakeForm on the View
 echo $this->BootsCakeForm->create($article);
 echo $this->BootsCakeForm->control('title');
 echo $this->BootsCakeForm->control('body');
-echo $this->BootsCakeForm->button(__('Submit'));
+echo $this->BootsCakeForm->control(__('Submit'), ['type' => 'submit']);
 echo $this->BootsCakeForm->end();
 ?>
 ```
@@ -139,7 +150,7 @@ $('#modal').on('show.bs.modal', function (event) {
 ## TODO
 - [ ] Improve Docs.
 - [ ] Handle configurations.
-- [ ] Add options for size (sm, md, lg).
+- [x] Add options for size (sm, md, lg).
 - [ ] Add options for modal rendering.
 - [ ] Create Html Helpers.
 - [ ] Create a way to automatize Bootstrap instalation.
@@ -148,7 +159,7 @@ $('#modal').on('show.bs.modal', function (event) {
 
 Copyright (c) 2017, Carlos Proaño and licensed under [The MIT License][mit].
 
-[cakephp]:https://cakephp.org
-[composer]:http://getcomposer.org
-[mit]:http://www.opensource.org/licenses/mit-license.php
-[twbs4]:https://v4-alpha.getbootstrap.com/
+[cakephp]: https://cakephp.org
+[composer]: http://getcomposer.org
+[mit]: http://www.opensource.org/licenses/mit-license.php
+[twbs4]: https://getbootstrap.com/
