@@ -83,7 +83,7 @@ I got your back! You can pass size as an option it could be `sm` or `lg`:
 ) ?>
 ```
 
-Also if you pass the option `'type' => 'submit'` it supports also a [color][twbs-colors] to render the submit button
+Also if you pass the option `'type' => 'submit'` it supports a [color][twbs-colors] to render the submit button
 
 ```php
 <?= $this->BootsCakeForm->control('Submit', ['type' => 'submit', 'color' => 'primary']) ?>
