@@ -60,7 +60,7 @@ class BootsCakeFormHelper extends FormHelper
             // Wrapper container for checkboxes.
             'checkboxWrapper' => '<div class="checkbox">{{label}}</div>',
             // Widget ordering for date/time/datetime pickers.
-            'dateWidget' => '{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}{{meridian}}',
+            'dateWidget' => '<div class="d-flex flex-row">{{day}}{{month}}{{year}}{{hour}}{{minute}}{{second}}{{meridian}}</div>',
             // Error message wrapper elements.
             'error' => '<div class="error-message">{{content}}</div>',
             // Container for error items.
@@ -102,7 +102,7 @@ class BootsCakeFormHelper extends FormHelper
             // Option group element used in select pickers.
             'optgroup' => '<optgroup label="{{label}}"{{attrs}}>{{content}}</optgroup>',
             // Select element,
-            'select' => '<select name="{{name}}"{{attrs}}>{{content}}</select>',
+            'select' => '<select class="form-control" name="{{name}}"{{attrs}}>{{content}}</select>',
             // Multi-select element,
             'selectMultiple' => '<select name="{{name}}[]" multiple="multiple"{{attrs}}>{{content}}</select>',
             // Radio input element,
