@@ -33,7 +33,7 @@ class BootsCakeFormHelper extends FormHelper
      */
     protected $_defaultConfig = [
         'idPrefix' => null,
-        'errorClass' => 'form-error',
+        'errorClass' => 'is-invalid',
         'typeMap' => [
             'string' => 'text',
             'text' => 'textarea',
@@ -62,7 +62,7 @@ class BootsCakeFormHelper extends FormHelper
             // Widget ordering for date/time/datetime pickers.
             'dateWidget' => '<div class="d-flex flex-row">{{day}}{{month}}{{year}}{{hour}}{{minute}}{{second}}{{meridian}}</div>',
             // Error message wrapper elements.
-            'error' => '<div class="error-message">{{content}}</div>',
+            'error' => '<div class="invalid-feedback mb-3">{{content}}</div>',
             // Container for error items.
             'errorList' => '<ul>{{content}}</ul>',
             // Error item wrapper.
